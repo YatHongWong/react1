@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 
+// We should always treat props as immutable, don't change it. We shoudl change state variables 
 interface Props {
   items: string[];
   heading: string;
+  onSelectItem: (item: string) => void;
 }
 
-function ListGroup({items, heading}: Props) {
-
-
+function ListGroup({ items, heading, onSelectItem }: Props) {
   // const errorMessage = () => {
   //   return items.length === 0 && <p>No items found</p>;;
   // };
@@ -36,6 +36,7 @@ function ListGroup({items, heading}: Props) {
             key={item}
             onClick={() => {
               setSelectedIndex(index);
+              onSelectItem(item);
             }}
           >
             {item}

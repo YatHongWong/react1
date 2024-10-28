@@ -1,9 +1,19 @@
-import ListGroup from './components/ListGroup';
+import Alert from "./components/Alert";
+import Buttons from "./components/Buttons";
 
-function App(){
-  let items = ["Satoru", "Suguru", "Hi"];
-  // equivalent to <div><Message></Message></div>
-  return <div><ListGroup items={items} heading='goats'/></div>
+
+function App() {
+  let text = 'test button'
+  let type = 'primary'
+
+  return (
+    <div>
+      <Buttons text={text} type={type}/>
+      <Alert>
+        Hello <span>wrld</span>World
+      </Alert>
+    </div>
+  );
 }
 
 export default App;
