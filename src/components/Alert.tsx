@@ -1,12 +1,26 @@
 import React, { ReactNode } from "react";
 
-// children is adefault prop, allowing you to pass stuff into props by using <component> Stuff </component>
+// children is a default prop, allowing you to pass stuff into props by using <component> Stuff </component>
 interface Props {
   children: ReactNode;
+  onClose: () => void;
 }
 
-const Alert = ({ children }: Props) => {
-  return <div className="alert alert-primary">{children}</div>;
+const Alert = ({ children, onClose }: Props) => {
+  return (
+    <>
+      <div className="alert alert-primary dismissible">
+        {children}
+        <button
+          type="button"
+          className="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+          onClick={onClose}
+        ></button>
+      </div>
+    </>
+  );
 };
 
 export default Alert;
